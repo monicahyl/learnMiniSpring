@@ -11,5 +11,27 @@
             <artifactId>dom4j</artifactId>
             <version>1.6.1</version>
         </dependency>
+
+        <dependency>
+            <groupId>org.junit.jupiter</groupId>
+            <artifactId>junit-jupiter</artifactId>
+            <version>5.10.1</version>
+            <scope>test</scope>
+        </dependency>
+
+        <!-- SLF4J（1.x 系列，Java 8 支持） -->
+        <dependency>
+            <groupId>org.slf4j</groupId>
+            <artifactId>slf4j-api</artifactId>
+            <version>1.7.36</version>
+        </dependency>
+
+        <!-- Logback（1.2.x，Java 8 支持） -->
+        <dependency>
+            <groupId>ch.qos.logback</groupId>
+            <artifactId>logback-classic</artifactId>
+            <version>1.2.13</version>
+        </dependency>
+
     </dependencies>
 </project>
