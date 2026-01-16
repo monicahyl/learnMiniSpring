@@ -1,0 +1,67 @@
+package com.minis.beans.argument;
+
+import java.util.ArrayList;
+import java.util.List;
+
+/**
+ * @Author huangyulu
+ * @Date 2026/1/16 15:16
+ * @Description setter注入
+ */
+public class PropertyValues {
+
+    private final List<PropertyValue> propertyValueList;
+
+
+    public PropertyValues() {
+        this.propertyValueList = new ArrayList<>(0);
+    }
+
+    public List<PropertyValue> getPropertyValueList() {
+        return this.propertyValueList;
+    }
+
+    public int size() {
+        return this.propertyValueList.size();
+    }
+
+    public void addPropertyValue(PropertyValue pv) {
+        this.propertyValueList.add(pv);
+    }
+
+    public void addPropertyValue(String propertyName, Object propertyValue) {
+        addPropertyValue(new PropertyValue(propertyName, propertyValue));
+    }
+
+    public void removePropertyValue(PropertyValue pv) {
+        this.propertyValueList.remove(pv);
+    }
+
+    public PropertyValue[] getPropertyValues() {
+        return this.propertyValueList.toArray(new PropertyValue[this.propertyValueList.size()]);
+    }
+
+    public PropertyValue getPropertyValue(String propertyName) {
+        for (PropertyValue pv : this.propertyValueList) {
+            if (pv.getName().equals(propertyName)) {
+                return pv;
+            }
+        }
+        return null;
+    }
+
+    public Object get(String propertyName) {
+        PropertyValue pv = this.getPropertyValue(propertyName);
+        return pv != null ? pv.getValue() : null;
+    }
+
+    public boolean contains(String propertyName) {
+        return this.getPropertyValue(propertyName) != null;
+    }
+
+    public boolean isEmpty() {
+        return this.propertyValueList.isEmpty();
+    }
+
+
+}

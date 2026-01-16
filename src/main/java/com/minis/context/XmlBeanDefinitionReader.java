@@ -1,7 +1,7 @@
 package com.minis.context;
 
-import com.minis.BeanDefinition;
-import com.minis.beans.BeanFactory;
+import com.minis.beans.BeanDefinition;
+import com.minis.beans.SimpleBeanFactory;
 import org.dom4j.Element;
 
 /**
@@ -10,10 +10,10 @@ import org.dom4j.Element;
  * @Description
  */
 public class XmlBeanDefinitionReader {
-    private BeanFactory beanFactory;
+    private SimpleBeanFactory simpleBeanFactory;
 
-    public XmlBeanDefinitionReader(BeanFactory beanFactory) {
-        this.beanFactory = beanFactory;
+    public XmlBeanDefinitionReader(SimpleBeanFactory simpleBeanFactory) {
+        this.simpleBeanFactory = simpleBeanFactory;
     }
 
     public XmlBeanDefinitionReader() {
@@ -31,7 +31,7 @@ public class XmlBeanDefinitionReader {
             String beanClassName = element.attributeValue("class");
 
             BeanDefinition beanDefinition = new BeanDefinition(beanID, beanClassName);
-            this.beanFactory.registerBeanDefinition(beanDefinition);
+            this.simpleBeanFactory.registerBeanDefinition(beanDefinition);
         }
     }
 

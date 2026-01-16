@@ -1,4 +1,10 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <beans>
-    <bean id = "aservice" class = "com.minis.test.service.impl.AServiceImpl"></bean>
+    <bean id = "aservice" class = "com.minis.test.service.impl.AServiceImpl">
+        <!--    Setter注入    -->
+        <property type="String" name="property1" value="Hello World!"/>
+        <!-- 构造器注入 -->
+        <constructor-args type="String" name="name" value="abc"/>
+        <constructor-args type="int" name="level" value="3"/>
+    </bean>
 </beans>

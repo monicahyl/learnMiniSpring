@@ -1,5 +1,7 @@
 package com.minis.test.reflection;
 
+import com.minis.beans.BeanDefinition;
+
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
@@ -92,6 +94,12 @@ public class BaseReflection {
         } catch (NoSuchFieldException e) {
             e.printStackTrace();
         }
+
+
+        BeanDefinition beanDefinition = new BeanDefinition();
+        Class<? extends BeanDefinition> aClass = beanDefinition.getClass();
+        System.out.println(aClass.getName());
+        System.out.println(aClass);
 
     }
 }

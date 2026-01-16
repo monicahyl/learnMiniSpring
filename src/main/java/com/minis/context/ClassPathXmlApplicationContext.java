@@ -1,8 +1,10 @@
 package com.minis.context;
 
-import com.minis.BeanDefinition;
+import com.minis.beans.BeanDefinition;
 import com.minis.beans.BeanFactory;
 import com.minis.beans.SimpleBeanFactory;
+import com.minis.event.ApplicationEvent;
+import com.minis.event.ApplicationEventPublisher;
 import com.minis.exception.BeansException;
 
 /**
@@ -14,7 +16,7 @@ import com.minis.exception.BeansException;
  * 2. 加载解析的内容，构建BeanDefinition。
  * 3. 读取BeanDefinition的配置信息，实例化Bean，然后把它注入到BeanFactory容器中
  */
-public class ClassPathXmlApplicationContext implements BeanFactory {
+public class ClassPathXmlApplicationContext implements BeanFactory, ApplicationEventPublisher {
 
     private BeanFactory beanFactory;
 
@@ -27,7 +29,7 @@ public class ClassPathXmlApplicationContext implements BeanFactory {
      */
     public ClassPathXmlApplicationContext(String fileName) {
         ClassPathXmlResource resource = new ClassPathXmlResource(fileName);
-        BeanFactory beanFactory = new SimpleBeanFactory();
+        SimpleBeanFactory beanFactory = new SimpleBeanFactory();
         XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
         reader.loadBeanDefinitions(resource);
         this.beanFactory = beanFactory;
@@ -49,6 +51,26 @@ public class ClassPathXmlApplicationContext implements BeanFactory {
         return this.beanFactory.getBean(beanName);
     }
 
+    @Override
+    public boolean containBean(String name) {
+        return false;
+    }
+
+    @Override
+    public boolean isSingleton(String name) {
+        return false;
+    }
+
+    @Override
+    public boolean isPrototype(String name) {
+        return false;
+    }
+
+    @Override
+    public Class<?> getType(String name) {
+        return null;
+    }
+
     /**
      * conext:对外提供一个registerBeanDefinition
      * @param beanDefinition
@@ -57,4 +79,20 @@ public class ClassPathXmlApplicationContext implements BeanFactory {
     public void registerBeanDefinition(BeanDefinition beanDefinition) {
         this.beanFactory.registerBeanDefinition(beanDefinition);
     }
+
+    @Override
+    public void registerBean(String beanName, Object obj) {
+        this.beanFactory.registerBean(beanName, obj);
+    }
+
+    @Override
+    public Boolean containsBean(String name) {
+        return this.beanFactory.containsBean(name);
+    }
+
+    @Override
+    public void publishEvent(ApplicationEvent event) {
+
+    }
+
 }
