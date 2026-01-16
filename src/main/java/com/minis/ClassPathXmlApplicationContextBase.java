@@ -16,9 +16,9 @@ import java.util.*;
  * @Description 1. 解析xml文件，获取Bean信息
  * 2. 利用反射创建Bean实例
  */
-public class ClassPathXmlApplicationContext {
+public class ClassPathXmlApplicationContextBase {
 
-    private static final Logger log = LoggerFactory.getLogger(ClassPathXmlApplicationContext.class);
+    private static final Logger log = LoggerFactory.getLogger(ClassPathXmlApplicationContextBase.class);
 
     private List<BeanDefinition> beanDefinitions = new ArrayList<>();
     private Map<String, Object> singletons = new HashMap<>();
@@ -28,7 +28,7 @@ public class ClassPathXmlApplicationContext {
      *
      * @param fileName
      */
-    public ClassPathXmlApplicationContext(String fileName) {
+    public ClassPathXmlApplicationContextBase(String fileName) {
         log.info("ClassPathXmlApplicationContext fileName={}", fileName);
         this.readXml(fileName);
         this.instanceBeans();
@@ -103,15 +103,15 @@ public class ClassPathXmlApplicationContext {
 
     public static void main(String[] args) {
 
-        ClassLoader cl = ClassPathXmlApplicationContext.class.getClassLoader();
+        ClassLoader cl = ClassPathXmlApplicationContextBase.class.getClassLoader();
 
         System.out.println("classpath root = " + cl.getResource(""));
         System.out.println("classpath root = " + cl.getResource("beans.xml"));
 
-        URL xmlPath = ClassPathXmlApplicationContext.class.getClassLoader().getResource("beans.xml");
+        URL xmlPath = ClassPathXmlApplicationContextBase.class.getClassLoader().getResource("beans.xml");
         System.out.println("xmlPath = " + xmlPath);
 
-        ClassPathXmlApplicationContext classPathXmlApplicationContext = new ClassPathXmlApplicationContext("beans.xml");
+        ClassPathXmlApplicationContextBase classPathXmlApplicationContext = new ClassPathXmlApplicationContextBase("beans.xml");
     }
 
 

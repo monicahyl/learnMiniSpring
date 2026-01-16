@@ -1,4 +1,4 @@
-package com.minis.reflection;
+package com.minis.test.reflection;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -54,7 +54,7 @@ public class BaseReflection {
     public static void main(String[] args) {
         // 动态创建对象
         try {
-            Class<?> aClass = Class.forName("com.minis.reflection.BaseReflection");
+            Class<?> aClass = Class.forName("com.minis.test.reflection.BaseReflection");
             Object obj = aClass.newInstance(); // 调用无参构造,创建对象
 
 
