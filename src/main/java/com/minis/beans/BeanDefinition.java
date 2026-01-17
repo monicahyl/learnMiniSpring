@@ -34,7 +34,7 @@ public class BeanDefinition {
     // 类别名
     private String id;
 
-    // 类名
+    // 全类名
     private String className;
 
     private String scope = SCOPE_SINGLETON;

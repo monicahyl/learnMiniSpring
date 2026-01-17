@@ -1,67 +1,36 @@
 package com.minis.beans.argument;
 
-import java.util.*;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author huangyulu
- * @Date 2026/1/16 14:47
- * @Description 构造器注入
+ * @Date 2026/1/17 11:02
+ * @Description
  */
 public class ArgumentValues {
 
-    private final Map<Integer, ArgumentValue> indexedArgumentValues = new HashMap<>(0);
-
-    private final List<ArgumentValue> genericArgumentValues = new LinkedList<>();
+    private final List<ArgumentValue> argumentValueList = new ArrayList<>();
 
     public ArgumentValues() {
 
     }
 
-    public void addArgumentValue(Integer key, ArgumentValue newValue) {
-        this.indexedArgumentValues.put(key, newValue);
+    public void addArgumentValue(ArgumentValue argumentValue) {
+        argumentValueList.add(argumentValue);
     }
 
-    public boolean hasIndexedArgumentValue(int index) {
-        return this.indexedArgumentValues.containsKey(index);
+    public ArgumentValue getIndexedArgumentValue(int index) {
+        ArgumentValue argumentValue = this.argumentValueList.get(index);
+        return argumentValue;
     }
 
-    public ArgumentValue getArgumentValue(int index) {
-        return this.indexedArgumentValues.get(index);
-    }
-
-
-    public void addGenericArgumentValue(ArgumentValue newValue) {
-        if (newValue.getName() != null) {
-            for (Iterator<ArgumentValue> it = this.genericArgumentValues.iterator();
-                 it.hasNext();
-            ) {
-                ArgumentValue currentValue = it.next();
-                if (newValue.getName().equals(currentValue.getName())) {
-                    it.remove();
-                }
-            }
-        }
-
-        this.genericArgumentValues.add(newValue);
-    }
-
-    public ArgumentValue getGenericArgumentValue(String requiredName) {
-        for (ArgumentValue valueHolder : this.genericArgumentValues) {
-            if (valueHolder.getValue() != null
-                    && (requiredName == null || !valueHolder.getName().equals(requiredName))) {
-                continue;
-            }
-            return valueHolder;
-        }
-        return null;
-    }
-
-    public int getArgumentValueCount() {
-        return this.genericArgumentValues.size();
+    public int getArgumentCount() {
+        return this.argumentValueList.size();
     }
 
     public boolean isEmpty() {
-        return this.genericArgumentValues.isEmpty();
+        return this.argumentValueList.isEmpty();
     }
 
 
