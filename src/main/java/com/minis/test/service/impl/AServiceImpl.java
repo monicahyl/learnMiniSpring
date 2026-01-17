@@ -62,6 +62,7 @@ public class AServiceImpl implements AService {
     }
 
     public void sayHello() {
-        System.out.println(this.property1 + "," + this.property2);
+        System.out.println(this.property2 + "," + this.property1);
+//        System.out.println("hello world");
     }
 }

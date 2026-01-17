@@ -51,17 +51,23 @@ public class SimpleBeanFactory extends DefaultSingletonBeanRegistry implements B
             if (beanDefinition == null) {
                 throw new BeansException("No bean with name '" + beanName + "' found");
             }
-            try {
-                singleton = Class.forName(beanDefinition.getClassName()).newInstance();
-                // 注册Bean实例
-                this.registerSingleton(beanName, singleton);
-            } catch (ClassNotFoundException e) {
-                e.printStackTrace();
-            } catch (InstantiationException e) {
-                e.printStackTrace();
-            } catch (IllegalAccessException e) {
-                e.printStackTrace();
-            }
+
+
+            singleton = createBean(beanDefinition);
+            // 注册Bean实例
+            this.registerSingleton(beanName, singleton);
+
+//            try {
+//                singleton = Class.forName(beanDefinition.getClassName()).newInstance();
+//                // 注册Bean实例
+//                this.registerSingleton(beanName, singleton);
+//            } catch (ClassNotFoundException e) {
+//                e.printStackTrace();
+//            } catch (InstantiationException e) {
+//                e.printStackTrace();
+//            } catch (IllegalAccessException e) {
+//                e.printStackTrace();
+//            }
         }
 
         return singleton;
@@ -114,11 +120,10 @@ public class SimpleBeanFactory extends DefaultSingletonBeanRegistry implements B
                         paramTypes[i] = String.class;
                         paramValues[i] = argValue;
                     }
-
-                    // 按照特定构造器构建实例
-                    con = clz.getConstructor(paramTypes);
-                    obj = con.newInstance(paramValues);
                 }
+                // 按照特定构造器构建实例
+                con = clz.getConstructor(paramTypes);
+                obj = con.newInstance(paramValues);
             } else {
                 // 如果没有参数，直接创建实例
                 obj = clz.newInstance();

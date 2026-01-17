@@ -68,7 +68,7 @@ public class XmlBeanDefinitionReader {
             beanDefinition.setDependsOn(refArray); // todo:
 
             // 处理构造器参数
-            List<Element> constructorElements = element.elements("constructor-arg");
+            List<Element> constructorElements = element.elements("constructor-args");
             ArgumentValues avs = new ArgumentValues();
             for (Element constructorElement : constructorElements) {
                 String type = constructorElement.attributeValue("type");

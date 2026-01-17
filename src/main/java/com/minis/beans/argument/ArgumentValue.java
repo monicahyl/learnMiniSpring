@@ -7,20 +7,20 @@ package com.minis.beans.argument;
  */
 public class ArgumentValue {
 
-//  参数名、参数值、参数类型
-    private Object value;
+    //  参数名、参数值、参数类型
     private String type;
     public String name;
+    private Object value;
 
-    public ArgumentValue(Object value, String type, String name) {
-        this.value = value;
+    public ArgumentValue(String type, String name, Object value) {
         this.type = type;
         this.name = name;
+        this.value = value;
     }
 
-    public ArgumentValue(Object value, String type) {
-        this.value = value;
+    public ArgumentValue(String type, Object value) {
         this.type = type;
+        this.value = value;
     }
 
     public ArgumentValue() {
