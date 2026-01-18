@@ -9,15 +9,15 @@
 // */
 //public class ArgumentValuesV1 {
 //
-//    private final Map<Integer, ArgumentValue> indexedArgumentValues = new HashMap<>(0);
+//    private final Map<Integer, ConstructorArgumentValue> indexedArgumentValues = new HashMap<>(0);
 //
-//    private final List<ArgumentValue> genericArgumentValues = new LinkedList<>();
+//    private final List<ConstructorArgumentValue> genericArgumentValues = new LinkedList<>();
 //
 //    public ArgumentValuesV1() {
 //
 //    }
 //
-//    public void addArgumentValue(Integer key, ArgumentValue newValue) {
+//    public void addArgumentValue(Integer key, ConstructorArgumentValue newValue) {
 //        this.indexedArgumentValues.put(key, newValue);
 //    }
 //
@@ -25,17 +25,17 @@
 //        return this.indexedArgumentValues.containsKey(index);
 //    }
 //
-//    public ArgumentValue getArgumentValue(int index) {
+//    public ConstructorArgumentValue getArgumentValue(int index) {
 //        return this.indexedArgumentValues.get(index);
 //    }
 //
 //
-//    public void addGenericArgumentValue(ArgumentValue newValue) {
+//    public void addGenericArgumentValue(ConstructorArgumentValue newValue) {
 //        if (newValue.getName() != null) {
-//            for (Iterator<ArgumentValue> it = this.genericArgumentValues.iterator();
+//            for (Iterator<ConstructorArgumentValue> it = this.genericArgumentValues.iterator();
 //                 it.hasNext();
 //            ) {
-//                ArgumentValue currentValue = it.next();
+//                ConstructorArgumentValue currentValue = it.next();
 //                if (newValue.getName().equals(currentValue.getName())) {
 //                    it.remove();
 //                }
@@ -45,8 +45,8 @@
 //        this.genericArgumentValues.add(newValue);
 //    }
 //
-//    public ArgumentValue getGenericArgumentValue(String requiredName) {
-//        for (ArgumentValue valueHolder : this.genericArgumentValues) {
+//    public ConstructorArgumentValue getGenericArgumentValue(String requiredName) {
+//        for (ConstructorArgumentValue valueHolder : this.genericArgumentValues) {
 //            if (valueHolder.getValue() != null
 //                    && (requiredName == null || !valueHolder.getName().equals(requiredName))) {
 //                continue;

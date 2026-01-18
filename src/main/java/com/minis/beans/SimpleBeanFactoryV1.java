@@ -1,5 +1,7 @@
 package com.minis.beans;
 
+import com.minis.beans.factory.BeanFactory;
+import com.minis.beans.factory.config.BeanDefinition;
 import com.minis.exception.BeansException;
 
 import java.util.ArrayList;

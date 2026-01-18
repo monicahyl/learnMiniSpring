@@ -1,6 +1,6 @@
 package com.minis.test.reflection;
 
-import com.minis.beans.BeanDefinition;
+import com.minis.beans.factory.config.BeanDefinition;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;

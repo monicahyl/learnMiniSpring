@@ -10,14 +10,14 @@ import java.util.List;
  * @Date 2026/1/17 14:57
  * @Description
  */
-public class ArgumentValuesTests {
+public class ConstructorConstructorArgumentValuesTests {
 
     @Test
     public void test() {
 //        System.out.println("hello world");
 
-//        ArgumentValues argumentValues = new ArgumentValues();
-//        ArgumentValue indexedArgumentValue = argumentValues.getIndexedArgumentValue(0);
+//        ConstructorArgumentValues argumentValues = new ConstructorArgumentValues();
+//        ConstructorArgumentValue indexedArgumentValue = argumentValues.getIndexedArgumentValue(0);
 //        System.out.println(indexedArgumentValue);
 
         List<String> refs = new ArrayList<>();

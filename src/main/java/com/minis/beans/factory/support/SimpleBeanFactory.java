@@ -1,9 +1,11 @@
-package com.minis.beans;
+package com.minis.beans.factory.support;
 
-import com.minis.beans.argument.ArgumentValue;
-import com.minis.beans.argument.ArgumentValues;
+import com.minis.beans.factory.config.BeanDefinition;
+import com.minis.beans.factory.config.ConstructorArgumentValue;
+import com.minis.beans.factory.config.ConstructorArgumentValues;
 import com.minis.beans.argument.PropertyValue;
 import com.minis.beans.argument.PropertyValues;
+import com.minis.beans.factory.BeanFactory;
 import com.minis.exception.BeansException;
 
 import java.lang.reflect.Constructor;
@@ -100,7 +102,7 @@ public class SimpleBeanFactory extends DefaultSingletonBeanRegistry implements B
 //        try {
 //            clz = Class.forName(beanDefinition.getClassName());
 //            // 处理构造器参数
-//            ArgumentValues argumentValues = beanDefinition.getConstructorArgumentValues();
+//            ConstructorArgumentValues argumentValues = beanDefinition.getConstructorArgumentValues();
 //            if (!argumentValues.isEmpty()) {
 //                // 有参数，需要处理
 //                // 参数个数
@@ -111,7 +113,7 @@ public class SimpleBeanFactory extends DefaultSingletonBeanRegistry implements B
 //                Object[] paramValues = new Object[argumentCount];
 //                // 分别处理每个参数，基于数据类型
 //                for (int i = 0; i < argumentCount; i++) {
-//                    ArgumentValue argumentValue = argumentValues.getIndexedArgumentValue(i);
+//                    ConstructorArgumentValue argumentValue = argumentValues.getIndexedArgumentValue(i);
 //                    String argType = argumentValue.getType();
 //                    Object argValue = argumentValue.getValue();
 //
@@ -219,20 +221,20 @@ public class SimpleBeanFactory extends DefaultSingletonBeanRegistry implements B
         try {
             clz = Class.forName(beanDefinition.getClassName());
             // 处理构造器参数
-            ArgumentValues argumentValues = beanDefinition.getConstructorArgumentValues();
-            if (!argumentValues.isEmpty()) {
+            ConstructorArgumentValues constructorArgumentValues = beanDefinition.getConstructorArgumentValues();
+            if (!constructorArgumentValues.isEmpty()) {
                 // 有参数，需要处理
                 // 参数个数
-                int argumentCount = argumentValues.getArgumentCount();
+                int argumentCount = constructorArgumentValues.getArgumentCount();
                 // 参数类型
                 Class<?>[] paramTypes = new Class<?>[argumentCount];
                 // 参数值
                 Object[] paramValues = new Object[argumentCount];
                 // 分别处理每个参数，基于数据类型
                 for (int i = 0; i < argumentCount; i++) {
-                    ArgumentValue argumentValue = argumentValues.getIndexedArgumentValue(i);
-                    String argType = argumentValue.getType();
-                    Object argValue = argumentValue.getValue();
+                    ConstructorArgumentValue constructorArgumentValue = constructorArgumentValues.getIndexedArgumentValue(i);
+                    String argType = constructorArgumentValue.getType();
+                    Object argValue = constructorArgumentValue.getValue();
 
                     if ("String".equals(argType) || "java.lang.String".equals(argType)) {
                         paramTypes[i] = String.class;
@@ -409,6 +411,9 @@ public class SimpleBeanFactory extends DefaultSingletonBeanRegistry implements B
 
     /**
      * 将容器中所有的Bean实例创建出来
+     *
+     *
+     * 整个容器启动的入口函数
      */
     public void refresh() {
         for (String beanName : beanDefinitionNames) {
