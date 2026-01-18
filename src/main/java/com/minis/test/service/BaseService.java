@@ -7,5 +7,5 @@ package com.minis.test.service;
  */
 public interface BaseService {
 
-
+    public void sayHello(String name);
 }

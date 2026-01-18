@@ -6,4 +6,6 @@ package com.minis.test.service;
  * @Description
  */
 public interface CaseService {
+
+    public void sayHello(String name);
 }

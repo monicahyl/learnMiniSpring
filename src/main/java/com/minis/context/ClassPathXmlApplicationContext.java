@@ -18,7 +18,7 @@ import com.minis.exception.BeansException;
  */
 public class ClassPathXmlApplicationContext implements BeanFactory, ApplicationEventPublisher {
 
-    private BeanFactory beanFactory;
+    private SimpleBeanFactory beanFactory;
 
     /**
      * context负责整合容器的启动过程
@@ -28,14 +28,22 @@ public class ClassPathXmlApplicationContext implements BeanFactory, ApplicationE
      * @param fileName
      */
     public ClassPathXmlApplicationContext(String fileName) {
-        ClassPathXmlResource resource = new ClassPathXmlResource(fileName);
+       this(fileName, true);
+    }
+
+    public ClassPathXmlApplicationContext() {
+
+    }
+
+    public ClassPathXmlApplicationContext(String fileName, boolean isRefresh) {
+        Resource resource = new ClassPathXmlResource(fileName);
         SimpleBeanFactory beanFactory = new SimpleBeanFactory();
         XmlBeanDefinitionReader reader = new XmlBeanDefinitionReader(beanFactory);
         reader.loadBeanDefinitions(resource);
         this.beanFactory = beanFactory;
-    }
-
-    public ClassPathXmlApplicationContext() {
+        if (isRefresh) {
+            this.beanFactory.refresh();
+        }
 
     }
 

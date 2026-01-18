@@ -1,7 +1,6 @@
 package com.minis.test.service.impl;
 
 import com.minis.test.service.AService;
-import com.minis.test.service.BaseService;
 
 public class AServiceImpl implements AService {
 
@@ -9,20 +8,20 @@ public class AServiceImpl implements AService {
     private String property1;
     private String property2;
 
-//    构造器注入
+    //    构造器注入
     private String name;
     private int level;
 
-    private BaseService baseService;
+    private BaseServiceImpl baseService;
 
-    public void setBaseService(BaseService baseService) {
+    public void setBaseService(BaseServiceImpl baseService) {
         this.baseService = baseService;
     }
 
     public AServiceImpl(String name, int level) {
         this.name = name;
         this.level = level;
-        System.out.println(this.name + ","  + this.level);
+        System.out.println(this.name + "," + this.level);
     }
 
     public AServiceImpl() {
@@ -61,8 +60,8 @@ public class AServiceImpl implements AService {
         this.level = level;
     }
 
-    public void sayHello() {
-        System.out.println(this.property2 + "," + this.property1);
+    public void sayHello(String name) {
+        System.out.println(name + ": " + this.property2 + "," + this.property1);
 //        System.out.println("hello world");
     }
 }

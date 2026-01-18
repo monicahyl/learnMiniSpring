@@ -1,6 +1,5 @@
 package com.minis.test.service.impl;
 
-import com.minis.test.service.AService;
 import com.minis.test.service.CaseService;
 
 /**
@@ -9,9 +8,14 @@ import com.minis.test.service.CaseService;
  * @Description
  */
 public class CaseServiceImpl implements CaseService {
-    private AService aService;
+    private AServiceImpl aService;
 
-    public void setAService(AService aService) {
+    public void setAService(AServiceImpl aService) {
         this.aService = aService;
+    }
+
+    @Override
+    public void sayHello(String name) {
+        aService.sayHello(name);
     }
 }

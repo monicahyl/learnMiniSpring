@@ -145,3 +145,11 @@ URL url2 = YourClassTest.class.getClassLoader().getResource("test-config.xml");
 
 
 
+### 循环依赖问题
+在某个Bean需要注入另一个Bean的时候，如果那个Bean还不存在，该怎么办？
+场景，Spring扫描到了ABean，在解析它并设置内部属性时，
+发现某个属性是另一个BBean，
+而此时Spring内部还不存在BBean的实例。
+这就要求Spring在创建ABean的过程中，能够再去创建一个BBean，
+继续推衍下去，BBean可能又会依赖第三个CBean。事情还可能进一步复杂化，如果CBean又反过来依赖ABean，就会形成循环依赖。
+

@@ -8,14 +8,14 @@
         <constructor-args type="String" name="name" value="abc"/>
         <constructor-args type="int" name="level" value="3"/>
         <!-- 对象注入 -->
-<!--        <property type="com.minis.test.service.BaseService" name="baseService" ref="baseservice" />-->
+        <property type="com.minis.test.service.impl.BaseServiceImpl" name="baseService" ref="baseservice" />
     </bean>
 
-<!--    <bean id="baseservice" class="com.minis.test.service.BaseService">-->
-<!--        <property type="com.minis.test.service.CaseService" name="caseService" ref="caseservice"/>-->
-<!--    </bean>-->
+    <bean id="baseservice" class="com.minis.test.service.impl.BaseServiceImpl">
+        <property type="com.minis.test.service.impl.CaseServiceImpl" name="caseService" ref="caseservice"/>
+    </bean>
 
-<!--    <bean id="caseservice" class="com.minis.test.service.CaseService">-->
-<!--        <property type="com.minis.test.service.AService" name="aService" ref="aservice"/>-->
-<!--    </bean>-->
+    <bean id="caseservice" class="com.minis.test.service.impl.CaseServiceImpl">
+        <property type="com.minis.test.service.impl.AServiceImpl" name="aService" ref="aservice"/>
+    </bean>
 </beans>
