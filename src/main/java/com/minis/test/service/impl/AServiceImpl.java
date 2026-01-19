@@ -1,5 +1,6 @@
 package com.minis.test.service.impl;
 
+import com.minis.beans.annotation.Autowired;
 import com.minis.test.service.AService;
 
 public class AServiceImpl implements AService {
@@ -12,11 +13,16 @@ public class AServiceImpl implements AService {
     private String name;
     private int level;
 
-    private BaseServiceImpl baseService;
+    @Autowired
+    private BaseServiceImpl baseservice;
 
-    public void setBaseService(BaseServiceImpl baseService) {
-        this.baseService = baseService;
-    }
+//    public void setBaseService(BaseServiceImpl baseService) {
+//        this.baseService = baseService;
+//    }
+
+//    public BaseServiceImpl getBaseService() {
+//        return baseService;
+//    }
 
     public AServiceImpl(String name, int level) {
         this.name = name;

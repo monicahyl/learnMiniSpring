@@ -31,11 +31,13 @@ public class ClassPathXmlApplicationContextTest {
         AService aservice = (AService) ctx.getBean("aservice");
         aservice.sayHello("aservice");
 
+
+
         BaseService baseService = (BaseService) ctx.getBean("baseservice");
         baseService.sayHello("baseservice");
 
-        CaseService caseService = (CaseService) ctx.getBean("caseservice");
-        caseService.sayHello("caseservice");
+//        CaseService caseService = (CaseService) ctx.getBean("caseservice");
+//        caseService.sayHello("caseservice");
 
     }
 

@@ -19,5 +19,6 @@ public class BaseServiceImpl implements BaseService {
     @Override
     public void sayHello(String name) {
         caseService.sayHello(name);
+        System.out.println("hello " + name);
     }
 }

@@ -8,7 +8,7 @@
         <constructor-args type="String" name="name" value="abc"/>
         <constructor-args type="int" name="level" value="3"/>
         <!-- 对象注入 -->
-        <property type="com.minis.test.service.impl.BaseServiceImpl" name="baseService" ref="baseservice" />
+<!--        <property type="com.minis.test.service.impl.BaseServiceImpl" name="baseService" ref="baseservice" />-->
     </bean>
 
     <bean id="baseservice" class="com.minis.test.service.impl.BaseServiceImpl">
