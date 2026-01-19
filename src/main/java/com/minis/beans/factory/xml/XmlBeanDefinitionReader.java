@@ -1,5 +1,6 @@
 package com.minis.beans.factory.xml;
 
+import com.minis.beans.DefaultListableBeanFactory;
 import com.minis.beans.factory.AutowireCapableBeanFactory;
 import com.minis.beans.factory.config.BeanDefinition;
 import com.minis.beans.factory.support.SimpleBeanFactory;
@@ -19,16 +20,10 @@ import java.util.List;
  * @Description
  */
 public class XmlBeanDefinitionReader {
-//    private SimpleBeanFactory simpleBeanFactory;
 
-    private AutowireCapableBeanFactory beanFactory;
+    private DefaultListableBeanFactory beanFactory;
 
-//    public XmlBeanDefinitionReader(SimpleBeanFactory simpleBeanFactory) {
-//        this.simpleBeanFactory = simpleBeanFactory;
-//    }
-
-
-    public XmlBeanDefinitionReader(AutowireCapableBeanFactory beanFactory) {
+    public XmlBeanDefinitionReader(DefaultListableBeanFactory beanFactory) {
         this.beanFactory = beanFactory;
     }
 

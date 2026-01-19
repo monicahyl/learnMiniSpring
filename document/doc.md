@@ -153,3 +153,8 @@ URL url2 = YourClassTest.class.getClassLoader().getResource("test-config.xml");
 这就要求Spring在创建ABean的过程中，能够再去创建一个BBean，
 继续推衍下去，BBean可能又会依赖第三个CBean。事情还可能进一步复杂化，如果CBean又反过来依赖ABean，就会形成循环依赖。
 
+
+
+还是按照以前的模式，先定义接口，然后用一个抽象类搭建框架，最后提供一个具体实现类进行默认实现。
+Spring的这个interface-abstract-class模式是值得我们学习的，它极大地增强了框架的扩展性。
+

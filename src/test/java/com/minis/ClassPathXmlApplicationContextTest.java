@@ -1,10 +1,9 @@
 package com.minis;
 
-import com.minis.context.ClassPathXmlApplicationContext;
+import com.minis.core.ClassPathXmlApplicationContext;
 import com.minis.exception.BeansException;
 import com.minis.test.service.AService;
 import com.minis.test.service.BaseService;
-import com.minis.test.service.CaseService;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -30,7 +29,6 @@ public class ClassPathXmlApplicationContextTest {
 
         AService aservice = (AService) ctx.getBean("aservice");
         aservice.sayHello("aservice");
-
 
 
         BaseService baseService = (BaseService) ctx.getBean("baseservice");
@@ -67,8 +65,6 @@ public class ClassPathXmlApplicationContextTest {
 
 //            aClass1.getMethod("setBaseService", Class.forName("com.minis.test.service.impl.BaseServiceImpl"));
             aClass1.getMethod("setBaseService", Class.forName("com.minis.test.service.BaseService"));
-
-
 
 
         } catch (ClassNotFoundException e) {
