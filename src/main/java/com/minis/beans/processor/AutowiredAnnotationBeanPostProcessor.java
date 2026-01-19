@@ -2,6 +2,7 @@ package com.minis.beans.processor;
 
 import com.minis.beans.annotation.Autowired;
 import com.minis.beans.factory.AutowireCapableBeanFactory;
+import com.minis.beans.factory.BeanFactory;
 import com.minis.exception.BeansException;
 
 import java.lang.reflect.Field;
@@ -74,5 +75,10 @@ public class AutowiredAnnotationBeanPostProcessor implements BeanPostProcessor {
     @Override
     public Object postProcessAfterInitialization(Object bean, String beanName) throws BeansException {
         return null;
+    }
+
+    @Override
+    public void setBeanFactory(BeanFactory beanFactory) {
+
     }
 }

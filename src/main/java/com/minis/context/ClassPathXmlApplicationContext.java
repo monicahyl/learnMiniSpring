@@ -7,6 +7,7 @@ import com.minis.beans.factory.xml.XmlBeanDefinitionReader;
 import com.minis.beans.processor.AutowiredAnnotationBeanPostProcessor;
 import com.minis.event.ApplicationEvent;
 import com.minis.event.ApplicationEventPublisher;
+import com.minis.event.ApplicationListener;
 import com.minis.exception.BeansException;
 
 /**
@@ -130,6 +131,11 @@ public class ClassPathXmlApplicationContext implements BeanFactory, ApplicationE
 
     @Override
     public void publishEvent(ApplicationEvent event) {
+
+    }
+
+    @Override
+    public void addApplicationListener(ApplicationListener listener) {
 
     }
 
