@@ -72,10 +72,8 @@ public abstract class AbstractApplicationContext implements ApplicationContext {
         return this.startupDate;
     }
 
-    @Override
-    public ConfigurableListableBeanFactory getBeanFactory() throws IllegalStateException {
-        return null;
-    }
+
+    public abstract ConfigurableListableBeanFactory getBeanFactory() throws IllegalStateException;
 
     @Override
     public void addBeanFactoryPostProcessor(BeanFactoryPostProcessor postProcessor) {

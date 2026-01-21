@@ -1,13 +1,11 @@
 package com.minis.beans.factory.xml;
 
 import com.minis.beans.DefaultListableBeanFactory;
-import com.minis.beans.factory.AutowireCapableBeanFactory;
-import com.minis.beans.factory.config.BeanDefinition;
-import com.minis.beans.factory.support.SimpleBeanFactory;
-import com.minis.beans.factory.config.ConstructorArgumentValue;
-import com.minis.beans.factory.config.ConstructorArgumentValues;
 import com.minis.beans.argument.PropertyValue;
 import com.minis.beans.argument.PropertyValues;
+import com.minis.beans.factory.config.BeanDefinition;
+import com.minis.beans.factory.config.ConstructorArgumentValue;
+import com.minis.beans.factory.config.ConstructorArgumentValues;
 import com.minis.context.Resource;
 import org.dom4j.Element;
 
@@ -33,6 +31,7 @@ public class XmlBeanDefinitionReader {
 
     /**
      * 把解析的XML内容转换成BeanDefinition，并加载到BeanFactory
+     *
      * @param resource
      */
     public void loadBeanDefinitions(Resource resource) {

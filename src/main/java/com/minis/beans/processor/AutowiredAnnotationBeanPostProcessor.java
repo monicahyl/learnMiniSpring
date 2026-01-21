@@ -1,8 +1,8 @@
 package com.minis.beans.processor;
 
 import com.minis.beans.annotation.Autowired;
-import com.minis.beans.factory.AutowireCapableBeanFactory;
 import com.minis.beans.factory.BeanFactory;
+import com.minis.beans.factory.support.AbstractAutowireCapableBeanFactory;
 import com.minis.exception.BeansException;
 
 import java.lang.reflect.Field;
@@ -15,13 +15,9 @@ import java.lang.reflect.Field;
 public class AutowiredAnnotationBeanPostProcessor implements BeanPostProcessor {
 
 
-    private AutowireCapableBeanFactory beanFactory;
+    private AbstractAutowireCapableBeanFactory beanFactory;
 
-    public void setBeanFactory(AutowireCapableBeanFactory beanFactory) {
-        this.beanFactory = beanFactory;
-    }
-
-    public AutowireCapableBeanFactory getBeanFactory() {
+    public AbstractAutowireCapableBeanFactory getBeanFactory() {
         return beanFactory;
     }
 
@@ -79,6 +75,6 @@ public class AutowiredAnnotationBeanPostProcessor implements BeanPostProcessor {
 
     @Override
     public void setBeanFactory(BeanFactory beanFactory) {
-
+        this.beanFactory = (AbstractAutowireCapableBeanFactory) beanFactory;
     }
 }
