@@ -1,6 +1,6 @@
 package com.minis.test.service.impl;
 
-import com.minis.beans.annotation.Autowired;
+import com.minis.beans.factory.annotation.Autowired;
 import com.minis.test.service.AService;
 
 public class AServiceImpl implements AService {
