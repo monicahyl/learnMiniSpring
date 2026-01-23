@@ -55,24 +55,6 @@ public class ClassPathXmlApplicationContextTest {
     }
 
 
-    @Test
-    public void testClass() {
-        try {
-
-            Class<?> aClass1 = Class.forName("com.minis.test.service.impl.AServiceImpl");
-            Method method = aClass1.getMethod("setBaseService", BaseService.class);
-            System.out.println(method.getName());
-
-//            aClass1.getMethod("setBaseService", Class.forName("com.minis.test.service.impl.BaseServiceImpl"));
-            aClass1.getMethod("setBaseService", Class.forName("com.minis.test.service.BaseService"));
 
 
-        } catch (ClassNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (NoSuchMethodException e) {
-            throw new RuntimeException(e);
-        }
-
-
-    }
 }
