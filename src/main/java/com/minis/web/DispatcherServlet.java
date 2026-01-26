@@ -27,15 +27,6 @@ import java.util.Map;
  */
 public class DispatcherServlet extends HttpServlet {
 
-    // MappingValue对象
-    private Map<String, MappingValue> mappingValues;
-
-    // 对应的类
-    private Map<String, Class<?>> mappingClz = new HashMap<>();
-
-    // 实例对象
-//    private Map<String, Object> mappingObjs = new HashMap<>();
-
     // 存储需要扫描的package列表
     private List<String> packageNames = new ArrayList<>();
     // 存储Controller名称数组列表
@@ -163,7 +154,7 @@ public class DispatcherServlet extends HttpServlet {
         File dir = new File(uri);
         for (File file : dir.listFiles()) {
             if (file.isDirectory()) {
-                scanPackage(packageName + "." + file.getName());
+                tempControllerNames.addAll(scanPackage(packageName + "." + file.getName()));
             } else {
                 String controllerName = packageName + "." + file.getName().replace(".class", "");
                 tempControllerNames.add(controllerName);
@@ -171,6 +162,7 @@ public class DispatcherServlet extends HttpServlet {
         }
         return tempControllerNames;
     }
+
 
 
     @Override
