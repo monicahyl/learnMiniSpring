@@ -13,6 +13,7 @@ import java.util.Iterator;
  * @Date 2026/1/21 17:20
  * @Description
  */
+@Deprecated
 public class ClassPathXmlResource implements Resource {
 
 

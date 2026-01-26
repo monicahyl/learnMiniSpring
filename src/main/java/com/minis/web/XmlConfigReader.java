@@ -10,6 +10,7 @@ import java.util.Map;
  * @Date 2026/1/21 17:24
  * @Description
  */
+@Deprecated
 public class XmlConfigReader {
 
     public XmlConfigReader() {
